@@ -22,4 +22,19 @@ class Instructor extends Model
         'profile',
     ];
 
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
+
+    public function learning_environments()
+    {
+        return $this->hasMany(Learning_environment::class);
+    }
+
+    public function scheduling_environments()
+    {
+        return $this->hasMany(Scheduling_environment::class);
+    }
+
 }

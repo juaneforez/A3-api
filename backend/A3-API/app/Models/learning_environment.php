@@ -26,7 +26,7 @@ class Learning_environment extends Model
 
     public function environment_type()
     {
-        return $this->belongsTo(EnvironmentType::class,'type_id');
+        return $this->belongsTo(EnvironmentType::class, 'type_id');
     }
     public function location()
     {
