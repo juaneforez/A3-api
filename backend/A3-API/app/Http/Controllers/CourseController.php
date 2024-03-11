@@ -30,7 +30,7 @@ class CourseController extends Controller
         $validator = Validator::make($request->all(), $this->rules);
         $validator->setAttributeNames($this->traductionAttributes);
         $data = [];
-        if($validator->fails()){
+        if ($validator->fails()) {
             $data = response()->json([
                 'errors' => $validator->errors(),
                 'data' => $request->all()
@@ -39,8 +39,8 @@ class CourseController extends Controller
 
         return $data;
     }
-    
-    
+
+
     /**
      * Display a listing of the resource.
      */
@@ -48,7 +48,7 @@ class CourseController extends Controller
     {
         $courses = Course::all();
         $courses->load('career');
-        return response()->json( $courses, Response::HTTP_OK);
+        return response()->json($courses, Response::HTTP_OK);
     }
 
     /**
@@ -57,11 +57,11 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $data = $this->applyValidator($request);
-        if(!empty($data)){
+        if (!empty($data)) {
             return $data;
         }
 
-        $course = Course::create ($request->all());
+        $course = Course::create($request->all());
         $response = [
             'message ' => 'Registro creado exitosamente',
             'course' => $course
@@ -84,7 +84,7 @@ class CourseController extends Controller
     public function update(Request $request, Course $course)
     {
         $data = $this->applyValidator($request);
-        if(!empty($data)){
+        if (!empty($data)) {
             return $data;
         }
 

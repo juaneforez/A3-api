@@ -11,14 +11,14 @@ class SchedulingEnvironmentController extends Controller
 {
     private $rules = [
         'course_id' => 'required|numeric',
-        'instructor_document' => 'required|numeric',
+        'instructor_id' => 'required|numeric',
         'environment_id' => 'required|numeric',
         'date_scheduling' => 'required|date_format:Y-m-d'
     ];
 
     private $traductionAttributes = [
         'course_id' => 'curso',
-        'instructor_document' => 'documento del instructor',
+        'instructor_id' => 'instructor',
         'environment_id' => 'ambiente',
         'date_scheduling' => 'fecha de programación'
     ];
@@ -28,7 +28,7 @@ class SchedulingEnvironmentController extends Controller
         $validator = Validator::make($request->all(), $this->rules);
         $validator->setAttributeNames($this->traductionAttributes);
         $data = [];
-        if($validator->fails()){
+        if ($validator->fails()) {
             $data = response()->json([
                 'errors' => $validator->errors(),
                 'data' => $request->all()
@@ -37,7 +37,7 @@ class SchedulingEnvironmentController extends Controller
 
         return $data;
     }
-    
+
     /**
      * Display a listing of the resource.
      */
@@ -45,7 +45,7 @@ class SchedulingEnvironmentController extends Controller
     {
         $scheduling_environments = Scheduling_environment::all();
         $scheduling_environments->load(['course', 'instructor', 'environment_type']);
-        return response()->json( $scheduling_environments, Response::HTTP_OK);
+        return response()->json($scheduling_environments, Response::HTTP_OK);
     }
 
     /**
@@ -54,11 +54,11 @@ class SchedulingEnvironmentController extends Controller
     public function store(Request $request)
     {
         $data = $this->applyValidator($request);
-        if(!empty($data)){
+        if (!empty($data)) {
             return $data;
         }
 
-        $scheduling_environment = Scheduling_environment::create ($request->all());
+        $scheduling_environment = Scheduling_environment::create($request->all());
         $response = [
             'message ' => 'Registro creado exitosamente',
             'scheduling_environment' => $scheduling_environment
@@ -81,7 +81,7 @@ class SchedulingEnvironmentController extends Controller
     public function update(Request $request, Scheduling_environment $scheduling_environment)
     {
         $data = $this->applyValidator($request);
-        if(!empty($data)){
+        if (!empty($data)) {
             return $data;
         }
 

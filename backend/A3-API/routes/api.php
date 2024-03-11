@@ -25,17 +25,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('Career', CareerController::class);
+Route::apiResource('career', CareerController::class);
 
-Route::apiResource('Course', CourseController::class);
+Route::apiResource('course', CourseController::class);
 
-Route::apiResource('EnvironmentType', EnvironmentTypeController::class);
+Route::apiResource('environmentType', EnvironmentTypeController::class);
 
-Route::apiResource('Instructor', InstructorController::class);
+Route::apiResource('instructor', InstructorController::class);
 
-Route::apiResource('LearningEnvironment', LearningEnvironmentController::class);
+Route::apiResource('learningEnvironment', LearningEnvironmentController::class);
 
-Route::apiResource('Location', LocationController::class);
+Route::apiResource('location', LocationController::class);
 
-Route::apiResource('SchedulingEnvironment', SchedulingEnvironmentController::class);
+Route::apiResource('schedulingEnvironment', SchedulingEnvironmentController::class);
 
