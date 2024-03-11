@@ -16,7 +16,7 @@ class SchedulingEnvironmentSeeder extends Seeder
         Scheduling_environment::insert([
             [
                 "course_id" => 1,
-                "instructor_document" => '399101497',
+                "instructor_id" => 1,
                 "date_scheduling" => '2022-01-01',
                 "initial_hour" => '10:00',
                 "final_hour" => '11:00',

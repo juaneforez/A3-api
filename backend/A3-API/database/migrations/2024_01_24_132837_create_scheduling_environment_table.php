@@ -17,7 +17,7 @@ return new class extends Migration {
                 ->onDelete('cascade')
                 ->onUpdate('cascade')
                 ->comment('FK table course');
-            $table->foreignId('instructor_document')->constrained('instructor', 'document')
+            $table->foreignId('instructor_id')->constrained('instructor')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 

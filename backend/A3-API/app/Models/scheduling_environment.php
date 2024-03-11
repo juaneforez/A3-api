@@ -14,7 +14,7 @@ class Scheduling_environment extends Model
 
     protected $fillable = [
         'course_id',
-        'document_instructor',
+        'instructor_id',
         'date_scheduling',
         'initial_hour',
         'final_hour',
@@ -25,6 +25,21 @@ class Scheduling_environment extends Model
     public function scheduling_environments()
     {
         return $this->belongsTo(Scheduling_environment::class);
+    }
+
+    public function courses()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
+    public function learning_environments()
+    {
+        return $this->belongsTo(Learning_environment::class);
+    }
+
+    public function instructors()
+    {
+        return $this->belongsTo(Instructor::class);
     }
 
 }
