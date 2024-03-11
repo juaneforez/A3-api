@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        //descomentar y ejecutar de primero para crear la base de datos
+
 
         //Llamada al InstructorFactory para crear 5 instructores con perfiles variados
         /*Instructor::factory()->create([
@@ -37,19 +37,17 @@ class DatabaseSeeder extends Seeder
         //Llamada al UserFactory para crear 5 usuarios
         User::factory(5)->create();
 
-
-        // descomentar y ejecutar de segundo para crear la base de datos
         $this->call(CareerSeeder::class);
         $this->call(CourseSeeder::class);
         $this->call(EnvironmentTypeSeeder::class);*/
 
 
-        //descomentar y ejecutar de tercer para crear la base de datos
+        //descomentar y ejecutar de segundo para crear la base de datos
         /*$this->call(LocationSeeder::class);
         $this->call(LearningEnvironmentSeeder::class);*/
 
 
-        //Descomentar y ejecutar de ultimo para crear la base de datos
+        //Descomentar y ejecutar de tercer para crear la base de datos
         /*$this->call(SchedulingEnvironmentSeeder::class);*/
 
 
